@@ -68,14 +68,20 @@ sys     0m0.004s
 
 效果非常明显。
 
-这里需要说明一下wait的左右。wait是等待前面的后台任务全部完成才往下执行，否则程序本身是不会等待的，这样对后面依赖前面任务结果的命令来说就可能出错。例如上面wc -l的命令就报错：不存在aa这个文件。
+这里需要说明一下wait的左右。wait是等待前面的后台任务全部完成才往下执行，否则程序本身是不会等待的，
+这样对后面依赖前面任务结果的命令来说就可能出错。例如上面wc -l的命令就报错：不存在aa这个文件。
 
 wait命令的官方解释如下：
 
  
 
        wait [n]
-              Wait for the specified process and return its termination status.  n may be a process ID or  a  job  specification; if a job spec is given, all processes in that job's pipeline are waited for.  If n is not given, all currently active child processes are waited for, and the return status is zero.  If  n  specifies  a  non-existent process  or job, the return status is 127.  Otherwise, the return status is the exit status of the last processor job waited for.
+              Wait for the specified process and return its termination status.  n may be a process 
+              ID or  a  job  specification; if a job spec is given, all processes in that job's pipeline 
+              are waited for.  If n is not given, all currently active child processes are waited for, 
+              and the return status is zero.  If  n  specifies  a  non-existent process  or job, the 
+              return status is 127.  Otherwise, the return status is the exit status of the last 
+              processor job waited for.
  
 
 以上所讲的实例都是进程数目不可控制的情况，下面描述如何准确控制并发的进程数目。
